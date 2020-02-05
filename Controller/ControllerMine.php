@@ -4,7 +4,7 @@ require_once File::build_path(array('Model','ModelMine.php'));
 class ControllerMine{
 
     public static function read(){
-        $tab=ModelNain::getAllMine();
+        $tab=ModelMine::getAllMine();
         $controller='Mine';
         $view = 'read';
         require File::build_path(array("view","view.php"));

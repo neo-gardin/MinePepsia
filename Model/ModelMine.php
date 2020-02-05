@@ -2,9 +2,10 @@
 require_once File::build_path(array('Model','Model.php'));
 
 class ModelMine extends Model {
-    private $idMine;
-    private $nomMine;
-    private $profondeurMine;
+    private $id;
+    private $nom;
+    private $profondeur;
+
 
     public function setAttribut($attribut, $valeur){
         $this->$attribut = $valeur;
@@ -16,7 +17,20 @@ class ModelMine extends Model {
         return $this->$attribut;
     }
 
-    public function getAllMine(){
+    public function __construct($id =NULL,$nom =NULL,$profondeur =NULL)
+    {
+        if(is_null($id) && !is_null($nom) && !is_null($profondeur) ){
+            $this->id=Null;
+            $this->nom=$nom;
+            $this->profondeur=$profondeur;
+
+        }
+    }
+
+
+
+
+    public static  function getAllMine(){
         $sql="SELECT * FROM Mine";
 
         $rep = Model::$pdo->query($sql);

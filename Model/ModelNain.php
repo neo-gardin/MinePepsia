@@ -8,6 +8,7 @@ class ModelNain extends Model{
     private $mine_id;
 
 
+
     public function setAttribut($attribut, $valeur){
         $this->$attribut = $valeur;
     }
@@ -32,10 +33,15 @@ class ModelNain extends Model{
 
 
 
+
+
     static public  function getAllNain(){
+
         $sql="SELECT * FROM Nain";
 
         $rep = Model::$pdo->query($sql);
+
+
 
         $rep->setFetchMode(PDO::FETCH_CLASS,'ModelNain');
 
