@@ -19,8 +19,8 @@
         </nav>
 
     </head>
+    <body>
 
-    <nav
 
 
 
@@ -28,9 +28,17 @@
     $filepath = File::build_path(array("view", $controller, "$view.php"));
     require $filepath;
     ?>
+    </body>
+
 
     <footer class="page-footer">
-        <div class="container">
+        <div class="footer-copyright">
+            <div class="container">
+
+                Site réalisé par Néo Gardin dans le cadre d'une offre de stage pour Pepsia
+
+                <a class="grey-text text-lighten-4 right" href="#!"></a>
+            </div>
 
         </div>
     </footer>
