@@ -39,4 +39,30 @@ class ModelMine extends Model {
 
         return $rep->fetchAll();
     }
+
+    static public function getTailleMoyenneNain($id){
+        $sql = "SELECT SUM(taille/ (SELECT COUNT(*) FROM Nain WHERE mine_id = :mine_id)) as taillemoyenne FROM Nain where mine_id = :mine_id ";
+
+        $req_prep= Model::$pdo->prepare($sql);
+
+        $values=array(
+            "mine_id"=>$id
+
+        );
+
+        $req_prep->execute($values);
+
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelMine');
+        $taille= $req_prep->fetchAll();
+
+        if(empty($taille)){
+            return false;
+          } else{
+        return $taille;
+        }
+
+    }
+
+
+
 }
