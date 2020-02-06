@@ -2,6 +2,7 @@
 
 <body>
 <div class="row">
+    <h1> Liste des Mines Actives</h1>
     <?php
 
     foreach ($tab as $t){
